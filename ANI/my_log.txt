@@ -1,0 +1,57 @@
+INFO: pyani version: 0.2.11
+INFO: Namespace(blastall_exe='blastall', blastn_exe='blastn', classes=None, filter_exe='delta-filter', force=False, formatdb_exe='formatdb', fragsize=1020, gformat='png', gmethod='seaborn', graphics=True, indirname='input', jobprefix='ANI', labels=None, logfile='my_log.txt', makeblastdb_exe='makeblastdb', maxmatch=False, method='ANIm', noclobber=False, nocompress=False, nucmer_exe='nucmer', outdirname='output/', rerender=False, scheduler='multiprocessing', seed=None, sgeargs=None, sgegroupsize=10000, skip_blastn=False, skip_nucmer=False, subsample=None, verbose=True, workers=None, write_excel=False)
+INFO: command-line: /Users/liaoc/opt/anaconda3/bin/average_nucleotide_identity.py -v -i input -o output/ -m ANIm --gmethod seaborn -l my_log.txt -g --gformat png
+INFO: Input directory: input
+INFO: Creating directory output/
+INFO: Output directory: output/
+INFO: Using ANI method: ANIm
+INFO: Using scheduler method: multiprocessing
+INFO: Identifying FASTA files in input
+INFO: Input files:
+	input/MSK.13.42.fna
+	input/MSK.19.90.fna
+	input/MSK.19.41.fna
+INFO: Processing input sequence lengths
+INFO: Sequence lengths:
+	MSK.13.42: 3081343
+	MSK.19.90: 4309910
+	MSK.19.41: 4206926
+INFO: Carrying out ANIm analysis
+INFO: Running ANIm
+INFO: Generating NUCmer command-lines
+INFO: Writing nucmer output to output/nucmer_output
+INFO: Running jobs with multiprocessing
+INFO: (using maximum number of available worker threads)
+INFO: Command pool now running:
+INFO: nucmer --mum -p output/nucmer_output/MSK.13.42_vs_MSK.19.41 input/MSK.13.42.fna input/MSK.19.41.fna
+INFO: nucmer --mum -p output/nucmer_output/MSK.19.90_vs_MSK.19.41 input/MSK.19.90.fna input/MSK.19.41.fna
+INFO: nucmer --mum -p output/nucmer_output/MSK.13.42_vs_MSK.19.90 input/MSK.13.42.fna input/MSK.19.90.fna
+INFO: Command pool done.
+INFO: Command pool now running:
+INFO: delta_filter_wrapper.py delta-filter -1 output/nucmer_output/MSK.13.42_vs_MSK.19.90.delta output/nucmer_output/MSK.13.42_vs_MSK.19.90.filter
+INFO: delta_filter_wrapper.py delta-filter -1 output/nucmer_output/MSK.13.42_vs_MSK.19.41.delta output/nucmer_output/MSK.13.42_vs_MSK.19.41.filter
+INFO: delta_filter_wrapper.py delta-filter -1 output/nucmer_output/MSK.19.90_vs_MSK.19.41.delta output/nucmer_output/MSK.19.90_vs_MSK.19.41.filter
+INFO: Command pool done.
+INFO: Cumulative return value: 0
+INFO: All multiprocessing jobs complete.
+INFO: Processing NUCmer .delta files.
+INFO: Compressing/deleting output/nucmer_output
+INFO: 	Compressing output from output/nucmer_output to output/nucmer_output.tar.gz
+INFO: 	Removing output directory output/nucmer_output
+INFO: Writing ANIm results to output/
+INFO: 	ANIm_alignment_lengths
+INFO: 	ANIm_percentage_identity
+INFO: 	ANIm_alignment_coverage
+INFO: 	ANIm_similarity_errors
+INFO: 	ANIm_hadamard
+INFO: Rendering output graphics
+INFO: Formats requested: png
+INFO: Graphics format: png
+INFO: Graphics method: seaborn
+INFO: Writing heatmap to output/ANIm_alignment_lengths.png
+INFO: Writing heatmap to output/ANIm_percentage_identity.png
+INFO: Writing heatmap to output/ANIm_alignment_coverage.png
+INFO: Writing heatmap to output/ANIm_similarity_errors.png
+INFO: Writing heatmap to output/ANIm_hadamard.png
+INFO: Done: Fri Mar 18 07:26:14 2022.
+INFO: Time taken: 13.23s
