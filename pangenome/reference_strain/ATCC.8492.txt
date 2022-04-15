@@ -1,0 +1,6 @@
+organism: Bacteroides species strain 
+contigs: 33
+bases: 4719097
+CDS: 3877
+tRNA: 55
+rRNA: 10
